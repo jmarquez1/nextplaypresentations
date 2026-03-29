@@ -704,7 +704,7 @@
       line-height: 1.6;
     }
 
-    /* ========== SLIDE 9: TERMS ========== */
+    /* ========== SLIDE 10: TERMS ========== */
     .slide-terms {
       background: var(--off-white);
       color: var(--dark);
@@ -719,7 +719,56 @@
     }
 
     .terms-container .section-title {
-      margin-bottom: 50px;
+      margin-bottom: 40px;
+    }
+
+    .payment-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    .payment-step-card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px 36px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      min-width: 260px;
+    }
+
+    .payment-step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 800;
+      margin: 0 auto 14px;
+    }
+
+    .payment-step-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .payment-step-card p {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.5;
+    }
+
+    .payment-connector-line {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), #1e3a5f);
+      flex-shrink: 0;
     }
 
     .terms-grid {
@@ -969,15 +1018,15 @@
     <div class="cover-line-top"></div>
     <div class="cover-line-bottom"></div>
     <div class="cover-content">
-      <p class="powered-by">Powered by <strong>SIXYARDS</strong> Sports & Event Management</p>
       <div class="logos-row">
-        <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 55px;">
+        <img src="assets/sixyards_logo.jpeg" alt="Sixyards" style="height: 50px;">
         <div class="logo-divider"></div>
         <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 90px;">
       </div>
+      <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 40px; margin-bottom: 40px; opacity: 0.85;">
       <p class="cover-subtitle">Pre-Season Training Camp 2026</p>
       <h1 class="cover-title">Pyramids FC</h1>
-      <p class="cover-club">Algarve, Portugal</p>
+      <p class="cover-club" style="color: #1e3a5f;">Algarve, Portugal</p>
       <div class="cover-dates">15 JULY — 29 JULY 2026</div>
       <p class="cover-location">
         <span>Colina Verde Resort</span> · Moncarapacho, Algarve
@@ -1230,19 +1279,35 @@
     </div>
   </section>
 
-  <!-- ==================== SLIDE 9: CANCELLATION TERMS ==================== -->
+  <!-- ==================== SLIDE 9: PAYMENT & CANCELLATION ==================== -->
   <section class="slide slide-terms" id="slide-terms">
     <div class="terms-container">
       <p class="section-label">Important Information</p>
-      <h2 class="section-title">Cancellation Terms</h2>
+      <h2 class="section-title">Payment & Cancellation Terms</h2>
 
+      <!-- Payment Conditions -->
+      <div class="payment-row">
+        <div class="payment-step-card">
+          <div class="payment-step-number" style="background: linear-gradient(135deg, var(--gold), #c9a227); color: var(--dark);">1</div>
+          <h3>Deposit — 50%</h3>
+          <p>Due within <strong>5 days</strong> after confirmation of the booking</p>
+        </div>
+        <div class="payment-connector-line"></div>
+        <div class="payment-step-card">
+          <div class="payment-step-number" style="background: linear-gradient(135deg, #1e3a5f, #2a5080); color: var(--white);">2</div>
+          <h3>Balance — 50%</h3>
+          <p>Due <strong>45 days</strong> before arrival date</p>
+        </div>
+      </div>
+
+      <!-- Cancellation Terms -->
       <div class="terms-grid">
         <div class="terms-card terms-card-green">
           <div class="terms-card-header">
             <span class="terms-icon">✓</span>
             <h3>Free Reduction</h3>
           </div>
-          <p>Groups may reduce the number of participants by up to <strong>20%</strong> from the final updated order confirmation without penalty, provided the reduction is made <strong>90 or more days</strong> before departure.</p>
+          <p>Groups may reduce participants by up to <strong>20%</strong> without penalty, provided the reduction is made <strong>90+ days</strong> before departure.</p>
         </div>
 
         <div class="terms-card terms-card-amber">
@@ -1250,7 +1315,7 @@
             <span class="terms-icon">⚠</span>
             <h3>Reductions Over 20%</h3>
           </div>
-          <p>Any reductions exceeding 20% will incur a cancellation fee equal to <strong>50% of the deposit</strong> amount for the additional participants removed. Payments related to non-refundable costs incurred with subcontractors will not be refunded.</p>
+          <p>Cancellation fee of <strong>50% of the deposit</strong> for additional participants removed. Non-refundable subcontractor costs will not be refunded.</p>
         </div>
 
         <div class="terms-card terms-card-red">
@@ -1258,10 +1323,9 @@
             <span class="terms-icon">✕</span>
             <h3>Cancellation Charges</h3>
           </div>
-          <p>Due to limited cancellation rights with subcontractors, the following charges will apply:</p>
           <ul class="terms-list">
-            <li><strong>89 to 35 days</strong> before departure: 100% of the deposit</li>
-            <li><strong>35 days or less</strong> before departure: 100% of the total trip cost</li>
+            <li><strong>89–35 days</strong> before departure: 100% of the deposit</li>
+            <li><strong>35 days or less</strong>: 100% of the total trip cost</li>
           </ul>
         </div>
       </div>
@@ -1270,12 +1334,12 @@
 
   <!-- ==================== SLIDE 10: CLOSING ==================== -->
   <section class="slide slide-closing" id="slide-closing">
-    <p class="powered-by">Powered by <strong>SIXYARDS</strong> Sports & Event Management</p>
     <div class="closing-logos">
-      <img src="assets/nextplay_logo.avif" alt="NextPlay">
+      <img src="assets/sixyards_logo.jpeg" alt="Sixyards" style="height: 45px;">
       <div class="logo-divider"></div>
       <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 80px;">
     </div>
+    <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 35px; opacity: 0.85;">
     <h2 class="closing-title">Ready to Elevate Your Pre-Season</h2>
     <p class="closing-tagline">Algarve, Portugal · July 15–29, 2026</p>
     <div class="closing-contact">
