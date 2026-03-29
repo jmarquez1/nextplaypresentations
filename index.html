@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pyramids FC — Pre-Season Training Camp 2026</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
+
+    :root {
+      --pyramids-red: #C8102E;
+      --pyramids-dark: #1a1a2e;
+      --gold: #D4AF37;
+      --gold-light: #F5E6B8;
+      --white: #ffffff;
+      --off-white: #f8f7f4;
+      --dark: #0d0d0d;
+      --gray-800: #1f1f1f;
+      --gray-600: #4a4a4a;
+      --gray-400: #8a8a8a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    .slide {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ========== SLIDE 1: COVER ========== */
+    .slide-cover {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #0d0d0d 100%);
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .cover-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(200, 16, 46, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.06) 0%, transparent 50%);
+      z-index: 0;
+    }
+
+    .cover-line-top,
+    .cover-line-bottom {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      z-index: 1;
+    }
+    .cover-line-top { top: 0; }
+    .cover-line-bottom { bottom: 0; }
+
+    .cover-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px 40px;
+      max-width: 1000px;
+    }
+
+    .logos-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+
+    .logos-row img {
+      height: 80px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3));
+    }
+
+    .logos-row .logo-divider {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(180deg, transparent, var(--gold-light), transparent);
+      opacity: 0.4;
+    }
+
+    .cover-subtitle {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--white) 0%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cover-club {
+      font-size: clamp(24px, 3.5vw, 40px);
+      font-weight: 300;
+      color: var(--pyramids-red);
+      margin-bottom: 30px;
+      letter-spacing: 2px;
+    }
+
+    .cover-dates {
+      display: inline-block;
+      padding: 14px 40px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 4px;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+
+    .cover-location {
+      font-size: 15px;
+      color: var(--gray-400);
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .cover-location span {
+      color: var(--gold);
+    }
+
+    .powered-by {
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .powered-by strong {
+      color: rgba(255,255,255,0.7);
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    /* ========== SLIDE 2: DESTINATION ========== */
+    .slide-destination {
+      background: var(--off-white);
+      color: var(--dark);
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .split-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .split-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .split-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      color: white;
+    }
+
+    .split-image-overlay p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .split-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--pyramids-red);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--dark);
+    }
+
+    .section-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--gray-600);
+      margin-bottom: 30px;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-number {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--pyramids-red);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: 6px;
+    }
+
+    /* ========== SLIDE 3: PITCH ========== */
+    .slide-pitch {
+      background: var(--dark);
+      flex-direction: column;
+    }
+
+    .pitch-hero {
+      width: 100%;
+      position: relative;
+    }
+
+    .pitch-gallery {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      width: 100%;
+      height: 70vh;
+      gap: 4px;
+    }
+
+    .pitch-gallery .main-img {
+      grid-row: 1 / 3;
+    }
+
+    .pitch-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pitch-info {
+      width: 100%;
+      padding: 50px 80px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .pitch-info-left {
+      flex: 1;
+    }
+
+    .pitch-info-right {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .pitch-feature {
+      padding: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+    }
+
+    .pitch-feature-icon {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .pitch-feature h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pitch-feature p {
+      font-size: 12px;
+      color: var(--gray-400);
+      line-height: 1.5;
+    }
+
+    /* ========== SLIDE 4: FACILITIES ========== */
+    .slide-facilities {
+      background: var(--off-white);
+      color: var(--dark);
+      flex-direction: column;
+      padding: 80px;
+    }
+
+    .facilities-header {
+      text-align: center;
+      margin-bottom: 60px;
+      max-width: 700px;
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .facility-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .facility-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+    }
+
+    .facility-card-img {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .facility-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .facility-card-body {
+      padding: 24px;
+    }
+
+    .facility-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .facility-card p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--gray-600);
+    }
+
+    /* ========== SLIDE 5: PACKAGE ========== */
+    .slide-package {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 60%, #0d0d0d 100%);
+      flex-direction: column;
+      padding: 80px;
+    }
+
+    .package-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .package-header .section-title {
+      color: var(--white);
+    }
+
+    .package-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .package-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 40px;
+      backdrop-filter: blur(10px);
+    }
+
+    .package-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .package-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .package-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .package-list li:last-child {
+      border-bottom: none;
+    }
+
+    .check-icon {
+      color: var(--gold);
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ========== SLIDE 6: ACCOMMODATION ========== */
+    .slide-accommodation {
+      background: var(--off-white);
+      color: var(--dark);
+    }
+
+    .accommodation-content {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .accommodation-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 4px;
+    }
+
+    .accommodation-images img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .accommodation-details {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .room-type {
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .room-type:last-child {
+      border-bottom: none;
+    }
+
+    .room-type h4 {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .room-type .room-count {
+      font-size: 14px;
+      color: var(--pyramids-red);
+      font-weight: 600;
+    }
+
+    .room-type p {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-top: 4px;
+    }
+
+    /* ========== SLIDE 7: PRICING ========== */
+    .slide-pricing {
+      background: linear-gradient(180deg, #0d0d0d 0%, #1a1a2e 100%);
+      flex-direction: column;
+      gap: 50px;
+    }
+
+    .pricing-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: 20px;
+      padding: 60px 80px;
+      text-align: center;
+      max-width: 700px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--pyramids-red), var(--gold));
+    }
+
+    .pricing-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .pricing-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .pricing-amount .currency {
+      font-size: 36px;
+      vertical-align: top;
+      margin-right: 4px;
+      color: var(--gold);
+    }
+
+    .pricing-per {
+      font-size: 16px;
+      color: var(--gray-400);
+      margin-bottom: 30px;
+    }
+
+    .pricing-breakdown {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .pricing-breakdown-item {
+      text-align: center;
+    }
+
+    .pricing-breakdown-item .value {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .pricing-breakdown-item .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-top: 4px;
+    }
+
+    .pricing-total {
+      margin-top: 50px;
+      padding: 30px 50px;
+      background: rgba(200, 16, 46, 0.1);
+      border: 1px solid rgba(200, 16, 46, 0.2);
+      border-radius: 12px;
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .pricing-total .total-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+      margin-bottom: 8px;
+    }
+
+    .pricing-total .total-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .pricing-total .total-note {
+      font-size: 13px;
+      color: var(--gray-400);
+      margin-top: 8px;
+    }
+
+    /* ========== SLIDE 8: EXTRAS ========== */
+    .slide-extras {
+      background: var(--off-white);
+      color: var(--dark);
+      flex-direction: column;
+      padding: 80px;
+    }
+
+    .extras-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .extras-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      max-width: 1000px;
+      width: 100%;
+    }
+
+    .extra-item {
+      text-align: center;
+      padding: 40px 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+    }
+
+    .extra-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--pyramids-red), #e0334b);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 26px;
+    }
+
+    .extra-item h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .extra-item p {
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.6;
+    }
+
+    /* ========== SLIDE 9: TERMS ========== */
+    .slide-terms {
+      background: var(--off-white);
+      color: var(--dark);
+      flex-direction: column;
+      padding: 80px;
+    }
+
+    .terms-container {
+      max-width: 1100px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .terms-container .section-title {
+      margin-bottom: 50px;
+    }
+
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: left;
+    }
+
+    .terms-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      border-top: 4px solid;
+    }
+
+    .terms-card-green { border-color: #22c55e; }
+    .terms-card-amber { border-color: #f59e0b; }
+    .terms-card-red { border-color: var(--pyramids-red); }
+
+    .terms-card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .terms-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .terms-card-green .terms-icon { background: rgba(34,197,94,0.12); color: #22c55e; }
+    .terms-card-amber .terms-icon { background: rgba(245,158,11,0.12); color: #f59e0b; }
+    .terms-card-red .terms-icon { background: rgba(200,16,46,0.12); color: var(--pyramids-red); }
+
+    .terms-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .terms-card p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-600);
+    }
+
+    .terms-card strong {
+      color: var(--dark);
+    }
+
+    .terms-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    .terms-list li {
+      padding: 8px 0;
+      font-size: 14px;
+      color: var(--gray-600);
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .terms-list li:first-child {
+      border-top: none;
+    }
+
+    /* ========== SLIDE 10: CLOSING ========== */
+    .slide-closing {
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 50%, #0d0d0d 100%);
+      flex-direction: column;
+      gap: 40px;
+      text-align: center;
+    }
+
+    .closing-logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+    }
+
+    .closing-logos img {
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    .closing-logos .logo-divider {
+      width: 1px;
+      height: 50px;
+      background: linear-gradient(180deg, transparent, rgba(212,175,55,0.3), transparent);
+    }
+
+    .closing-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--white), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .closing-tagline {
+      font-size: 16px;
+      color: var(--gray-400);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .closing-contact {
+      margin-top: 20px;
+      padding: 30px 50px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+    }
+
+    .closing-contact p {
+      font-size: 14px;
+      color: var(--gray-400);
+      margin: 6px 0;
+    }
+
+    .closing-contact a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ========== NAVIGATION ========== */
+    .nav-dots {
+      position: fixed;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 100;
+    }
+
+    .nav-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .nav-dot:hover,
+    .nav-dot.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      transform: scale(1.3);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .split-layout,
+      .accommodation-content {
+        grid-template-columns: 1fr;
+      }
+
+      .split-image {
+        height: 40vh;
+      }
+
+      .split-text,
+      .accommodation-details {
+        padding: 40px 30px;
+      }
+
+      .package-columns {
+        grid-template-columns: 1fr;
+      }
+
+      .facilities-grid,
+      .extras-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .slide-facilities,
+      .slide-package,
+      .slide-extras {
+        padding: 40px 20px;
+      }
+
+      .pitch-info {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .pitch-gallery {
+        grid-template-columns: 1fr;
+        height: auto;
+      }
+
+      .pitch-gallery .main-img {
+        grid-row: auto;
+      }
+
+      .pricing-card {
+        padding: 40px 30px;
+      }
+
+      .pricing-breakdown {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .stats-row {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .nav-dots { display: none; }
+    }
+
+    @media print {
+      html { scroll-snap-type: none; }
+      .slide { min-height: auto; page-break-after: always; }
+      .nav-dots { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Dots -->
+  <nav class="nav-dots" id="navDots"></nav>
+
+  <!-- ==================== SLIDE 1: COVER ==================== -->
+  <section class="slide slide-cover" id="slide-cover">
+    <div class="cover-bg-pattern"></div>
+    <div class="cover-line-top"></div>
+    <div class="cover-line-bottom"></div>
+    <div class="cover-content">
+      <div class="logos-row">
+        <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 55px;">
+        <div class="logo-divider"></div>
+        <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 90px;">
+      </div>
+      <p class="cover-subtitle">Pre-Season Training Camp 2026</p>
+      <h1 class="cover-title">Pyramids FC</h1>
+      <p class="cover-club">Algarve, Portugal</p>
+      <div class="cover-dates">15 JULY — 29 JULY 2026</div>
+      <p class="cover-location">
+        <span>Colina Verde Resort</span> · Moncarapacho, Algarve
+      </p>
+      <p class="powered-by">Powered by <strong>Sixyards</strong> Sports & Event Management</p>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 2: DESTINATION ==================== -->
+  <section class="slide slide-destination" id="slide-destination">
+    <div class="split-layout">
+      <div class="split-image">
+        <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/pool1-min.jpg" alt="Colina Verde Resort">
+        <div class="split-image-overlay">
+          <p>Colina Verde Resort · Algarve, Portugal</p>
+        </div>
+      </div>
+      <div class="split-text">
+        <p class="section-label">The Destination</p>
+        <h2 class="section-title">World-Class Training in the Heart of the Algarve</h2>
+        <p class="section-text">
+          Nestled on 30 hectares of pristine countryside between the beautiful cities of Tavira and Olhão, Colina Verde Resort offers the perfect environment for elite football preparation. A 4-star resort combining comfort with exceptional conditions for professional sports practice, trusted by teams including the Spanish National Football Team, Aberdeen FC, and FC Girondins de Bordeaux.
+        </p>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Nights</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">71</div>
+            <div class="stat-label">Guests</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4★</div>
+            <div class="stat-label">Resort</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">30</div>
+            <div class="stat-label">Hectares</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 3: TRAINING PITCH ==================== -->
+  <section class="slide slide-pitch" id="slide-pitch">
+    <div class="pitch-hero">
+      <div class="pitch-gallery">
+        <div class="main-img">
+          <img src="assets/WhatsApp Image 2026-03-26 at 14.28.01.jpeg" alt="FIFA-regulation training pitch">
+        </div>
+        <div>
+          <img src="assets/WhatsApp Image 2026-03-26 at 14.28.02.jpeg" alt="Pitch close-up">
+        </div>
+        <div>
+          <img src="assets/WhatsApp Image 2026-03-26 at 14.28.02 (1).jpeg" alt="Pitch panoramic view">
+        </div>
+      </div>
+    </div>
+    <div class="pitch-info">
+      <div class="pitch-info-left">
+        <p class="section-label" style="color: var(--gold);">Training Facilities</p>
+        <h2 class="section-title" style="color: var(--white); font-size: 32px;">FIFA-Regulation Natural Turf Pitch</h2>
+        <p style="color: var(--gray-400); font-size: 14px; line-height: 1.7;">
+          Full-size natural grass pitch maintained to professional standards. Located just a 3-minute jog from the resort, providing a focused training environment away from accommodation distractions.
+        </p>
+      </div>
+      <div class="pitch-info-right">
+        <div class="pitch-feature">
+          <div class="pitch-feature-icon">⚽</div>
+          <h4>2 × 90 min Sessions</h4>
+          <p>Two daily training sessions on the pitch</p>
+        </div>
+        <div class="pitch-feature">
+          <div class="pitch-feature-icon">🎥</div>
+          <h4>Video Analysis</h4>
+          <p>Tower position for tactical recording</p>
+        </div>
+        <div class="pitch-feature">
+          <div class="pitch-feature-icon">🏋️</div>
+          <h4>Full Equipment</h4>
+          <p>Mannequins, bags, ladders, goals & more</p>
+        </div>
+        <div class="pitch-feature">
+          <div class="pitch-feature-icon">❄️</div>
+          <h4>Ice Baths</h4>
+          <p>200kg ice daily, post-session recovery</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 4: FACILITIES ==================== -->
+  <section class="slide slide-facilities" id="slide-facilities">
+    <div class="facilities-header">
+      <p class="section-label">Resort Facilities</p>
+      <h2 class="section-title">Everything Your Squad Needs</h2>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-card">
+        <div class="facility-card-img">
+          <img src="https://www.colinaverderesort.pt/wp-content/uploads/2022/11/Gymn-2-min.jpg" alt="Gym">
+        </div>
+        <div class="facility-card-body">
+          <h3>TechnoGym Fitness Centre</h3>
+          <p>Fully equipped professional gymnasium with state-of-the-art Technogym cardio and strength equipment for supplementary training.</p>
+        </div>
+      </div>
+      <div class="facility-card">
+        <div class="facility-card-img">
+          <img src="https://www.colinaverderesort.pt/wp-content/uploads/2022/11/eventosCorp-min.jpg" alt="Private Tent">
+        </div>
+        <div class="facility-card-body">
+          <h3>Private Tent & Meeting Space</h3>
+          <p>Dedicated private tent and conference facilities for team meetings, tactical briefings, video analysis sessions and private meals for the squad.</p>
+        </div>
+      </div>
+      <div class="facility-card">
+        <div class="facility-card-img">
+          <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/spa2-min.jpg" alt="Medical Room">
+        </div>
+        <div class="facility-card-body">
+          <h3>Medical & Recovery</h3>
+          <p>2 dedicated massage/medical rooms, plus a fully equipped kit room. Daily ice baths prepared after each training session for optimal recovery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 5: PACKAGE ==================== -->
+  <section class="slide slide-package" id="slide-package">
+    <div class="package-header">
+      <p class="section-label" style="color: var(--gold);">Camp Package</p>
+      <h2 class="section-title">All-Inclusive Training Experience</h2>
+    </div>
+    <div class="package-columns">
+      <div class="package-card">
+        <h3>🏨 Accommodation & Services</h3>
+        <ul class="package-list">
+          <li><span class="check-icon">✓</span> 17× Single apartments</li>
+          <li><span class="check-icon">✓</span> 54× pax in 2-bedroom apartments</li>
+          <li><span class="check-icon">✓</span> 1 Private kit room</li>
+          <li><span class="check-icon">✓</span> 2 Massage / Medical rooms</li>
+          <li><span class="check-icon">✓</span> Private meal room for the squad</li>
+          <li><span class="check-icon">✓</span> Conference room (40 guests, projector & screen)</li>
+          <li><span class="check-icon">✓</span> 2 litres of bottled water per person per day</li>
+          <li><span class="check-icon">✓</span> Daily kit laundry service</li>
+          <li><span class="check-icon">✓</span> WiFi throughout the resort</li>
+          <li><span class="check-icon">✓</span> Sport TV in reception area</li>
+        </ul>
+      </div>
+      <div class="package-card">
+        <h3>⚽ Training & Performance</h3>
+        <ul class="package-list">
+          <li><span class="check-icon">✓</span> Full natural turf grass pitch (3 min from resort)</li>
+          <li><span class="check-icon">✓</span> 2 × 90-minute training sessions daily</li>
+          <li><span class="check-icon">✓</span> 200kg of ice daily for recovery baths</li>
+          <li><span class="check-icon">✓</span> Video analysis tower position</li>
+          <li><span class="check-icon">✓</span> Complete training equipment set</li>
+          <li><span class="check-icon">✓</span> Mannequins, tackle bags, ladders, flat tops</li>
+          <li><span class="check-icon">✓</span> Slalom poles, bazooka goals, bosu balls</li>
+          <li><span class="check-icon">✓</span> Yoga mats for stretching sessions</li>
+          <li><span class="check-icon">✓</span> Fully equipped TechnoGym centre</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 6: ACCOMMODATION ==================== -->
+  <section class="slide slide-accommodation" id="slide-accommodation">
+    <div class="accommodation-content">
+      <div class="accommodation-images">
+        <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/t12pax1-min.jpg" alt="Apartment interior">
+        <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/t12pax3-min.jpg" alt="Apartment living area">
+        <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/pool2-min.jpg" alt="Pool area">
+        <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/t1pool1-min.jpg" alt="Apartment pool view">
+      </div>
+      <div class="accommodation-details">
+        <p class="section-label">Accommodation</p>
+        <h2 class="section-title">4-Star Comfort for the Entire Squad</h2>
+        <p class="section-text">
+          All apartments feature balconies with views over gardens, pools, or the Atlantic Ocean. Equipped kitchenettes, living areas, and modern bathrooms ensure comfort throughout the camp.
+        </p>
+        <div class="room-type">
+          <h4>Single Apartments (1 Bedroom)</h4>
+          <p class="room-count">17 apartments</p>
+          <p>Private, elegant apartments ideal for coaching staff and key personnel. Each with bedroom, bathroom, kitchenette and sitting area.</p>
+        </div>
+        <div class="room-type">
+          <h4>2-Bedroom Apartments</h4>
+          <p class="room-count">Accommodating 54 pax</p>
+          <p>Spacious apartments with two bedrooms, perfect for player accommodation. Pool or garden views with generous living spaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 7: EXTRAS ==================== -->
+  <section class="slide slide-extras" id="slide-extras">
+    <div class="extras-header">
+      <p class="section-label">Included Extras</p>
+      <h2 class="section-title">Going the Extra Mile</h2>
+    </div>
+    <div class="extras-grid">
+      <div class="extra-item">
+        <div class="extra-icon">✈️</div>
+        <h3>Airport Transfers</h3>
+        <p>Full squad airport transfers arranged for arrival and departure — seamless logistics from landing to training.</p>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">⚽</div>
+        <h3>3 Friendly Matches</h3>
+        <p>Organisation of 3 friendly matches against local or touring teams, including transport to and from match venues.</p>
+      </div>
+      <div class="extra-item">
+        <div class="extra-icon">🤝</div>
+        <h3>Local Assistance</h3>
+        <p>Dedicated on-ground support throughout the camp duration — local coordination, logistics and 24/7 assistance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 8: PRICING ==================== -->
+  <section class="slide slide-pricing" id="slide-pricing">
+    <div class="pricing-card">
+      <p class="pricing-label">Investment</p>
+      <div class="pricing-amount">
+        <span class="currency">€</span>250
+      </div>
+      <p class="pricing-per">per person, per night</p>
+      <div class="pricing-breakdown">
+        <div class="pricing-breakdown-item">
+          <div class="value">71</div>
+          <div class="label">Total Pax</div>
+        </div>
+        <div class="pricing-breakdown-item">
+          <div class="value">14</div>
+          <div class="label">Nights</div>
+        </div>
+        <div class="pricing-breakdown-item">
+          <div class="value">Jul 15–29</div>
+          <div class="label">2026</div>
+        </div>
+      </div>
+    </div>
+    <div class="pricing-total">
+      <p class="total-label">Total Camp Investment</p>
+      <p class="total-amount">€248,500</p>
+      <p class="total-note">71 pax × 14 nights × €250/night — All-inclusive package</p>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 9: CANCELLATION TERMS ==================== -->
+  <section class="slide slide-terms" id="slide-terms">
+    <div class="terms-container">
+      <p class="section-label">Important Information</p>
+      <h2 class="section-title">Cancellation Terms</h2>
+
+      <div class="terms-grid">
+        <div class="terms-card terms-card-green">
+          <div class="terms-card-header">
+            <span class="terms-icon">✓</span>
+            <h3>Free Reduction</h3>
+          </div>
+          <p>Groups may reduce the number of participants by up to <strong>20%</strong> from the final updated order confirmation without penalty, provided the reduction is made <strong>90 or more days</strong> before departure.</p>
+        </div>
+
+        <div class="terms-card terms-card-amber">
+          <div class="terms-card-header">
+            <span class="terms-icon">⚠</span>
+            <h3>Reductions Over 20%</h3>
+          </div>
+          <p>Any reductions exceeding 20% will incur a cancellation fee equal to <strong>50% of the deposit</strong> amount for the additional participants removed. Payments related to non-refundable costs incurred with subcontractors will not be refunded.</p>
+        </div>
+
+        <div class="terms-card terms-card-red">
+          <div class="terms-card-header">
+            <span class="terms-icon">✕</span>
+            <h3>Cancellation Charges</h3>
+          </div>
+          <p>Due to limited cancellation rights with subcontractors, the following charges will apply:</p>
+          <ul class="terms-list">
+            <li><strong>89 to 35 days</strong> before departure: 100% of the deposit</li>
+            <li><strong>35 days or less</strong> before departure: 100% of the total trip cost</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 10: CLOSING ==================== -->
+  <section class="slide slide-closing" id="slide-closing">
+    <div class="closing-logos">
+      <img src="assets/nextplay_logo.avif" alt="NextPlay">
+      <div class="logo-divider"></div>
+      <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 80px;">
+    </div>
+    <h2 class="closing-title">Ready to Elevate Your Pre-Season</h2>
+    <p class="closing-tagline">Algarve, Portugal · July 15–29, 2026</p>
+    <p class="powered-by">Powered by <strong>Sixyards</strong> Sports & Event Management</p>
+    <div class="closing-contact">
+      <p style="color: var(--white); font-weight: 600; margin-bottom: 10px;">Get in Touch</p>
+      <p>NextPlay Sports · <a href="mailto:moura@nextplay.travel">moura@nextplay.travel</a></p>
+    </div>
+  </section>
+
+  <script>
+    // Navigation dots
+    const slides = document.querySelectorAll('.slide');
+    const navDots = document.getElementById('navDots');
+
+    slides.forEach((slide, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'nav-dot';
+      dot.addEventListener('click', () => {
+        slide.scrollIntoView({ behavior: 'smooth' });
+      });
+      navDots.appendChild(dot);
+    });
+
+    // Highlight active dot on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Array.from(slides).indexOf(entry.target);
+          document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+      });
+    }, { threshold: 0.5 });
+
+    slides.forEach(slide => observer.observe(slide));
+  </script>
+
+</body>
+</html>
