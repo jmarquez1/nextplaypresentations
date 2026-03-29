@@ -1004,6 +1004,67 @@
       html { scroll-snap-type: none; }
       .slide { min-height: auto; page-break-after: always; }
       .nav-dots { display: none; }
+      .lang-toggle { display: none; }
+    }
+
+    /* Language Toggle */
+    .lang-toggle {
+      position: fixed;
+      top: 24px;
+      left: 24px;
+      z-index: 200;
+      display: flex;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .lang-btn {
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      transition: all 0.3s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* RTL support */
+    html[dir="rtl"] .split-layout {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .stats-row,
+    html[dir="rtl"] .package-list li,
+    html[dir="rtl"] .terms-card-header,
+    html[dir="rtl"] .payment-row {
+      direction: rtl;
+    }
+
+    html[dir="rtl"] .stat-item {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .split-text,
+    html[dir="rtl"] .accommodation-details {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .terms-card {
+      text-align: right;
+    }
+
+    html[dir="rtl"] .terms-list {
+      text-align: right;
     }
   </style>
 </head>
@@ -1011,6 +1072,12 @@
 
   <!-- Navigation Dots -->
   <nav class="nav-dots" id="navDots"></nav>
+
+  <!-- Language Toggle -->
+  <div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">عربي</button>
+  </div>
 
   <!-- ==================== SLIDE 1: COVER ==================== -->
   <section class="slide slide-cover" id="slide-cover">
@@ -1024,12 +1091,12 @@
         <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 90px;">
       </div>
       <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 40px; margin-bottom: 40px; opacity: 0.85;">
-      <p class="cover-subtitle">Pre-Season Training Camp 2026</p>
+      <p class="cover-subtitle" data-i18n="cover_subtitle">Pre-Season Training Camp 2026</p>
       <h1 class="cover-title">Pyramids FC</h1>
-      <p class="cover-club" style="color: #5b9bd5;">Algarve, Portugal</p>
-      <div class="cover-dates">15 JULY — 29 JULY 2026</div>
+      <p class="cover-club" style="color: #5b9bd5;" data-i18n="cover_location">Algarve, Portugal</p>
+      <div class="cover-dates" data-i18n="cover_dates">15 JULY — 29 JULY 2026</div>
       <p class="cover-location">
-        <span>Colina Verde Resort</span> · Moncarapacho, Algarve
+        <span>Colina Verde Resort</span> · <span data-i18n="cover_resort_location">Moncarapacho, Algarve</span>
       </p>
     </div>
   </section>
@@ -1044,27 +1111,27 @@
         </div>
       </div>
       <div class="split-text">
-        <p class="section-label">The Destination</p>
-        <h2 class="section-title">World-Class Training in the Heart of the Algarve</h2>
-        <p class="section-text">
+        <p class="section-label" data-i18n="dest_label">The Destination</p>
+        <h2 class="section-title" data-i18n="dest_title">World-Class Training in the Heart of the Algarve</h2>
+        <p class="section-text" data-i18n="dest_text">
           Nestled on 30 hectares of pristine countryside between the beautiful cities of Tavira and Olhão, Colina Verde Resort offers the perfect environment for elite football preparation. A 4-star resort combining comfort with exceptional conditions for professional sports practice, trusted by teams including the Spanish National Football Team, Aberdeen FC, and FC Girondins de Bordeaux.
         </p>
         <div class="stats-row">
           <div class="stat-item">
             <div class="stat-number">14</div>
-            <div class="stat-label">Nights</div>
+            <div class="stat-label" data-i18n="stat_nights">Nights</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">71</div>
-            <div class="stat-label">Guests</div>
+            <div class="stat-label" data-i18n="stat_guests">Guests</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">4★</div>
-            <div class="stat-label">Resort</div>
+            <div class="stat-label" data-i18n="stat_resort">Resort</div>
           </div>
           <div class="stat-item">
             <div class="stat-number">30</div>
-            <div class="stat-label">Hectares</div>
+            <div class="stat-label" data-i18n="stat_hectares">Hectares</div>
           </div>
         </div>
       </div>
@@ -1088,32 +1155,32 @@
     </div>
     <div class="pitch-info">
       <div class="pitch-info-left">
-        <p class="section-label" style="color: var(--gold);">Training Facilities</p>
-        <h2 class="section-title" style="color: var(--white); font-size: 32px;">FIFA-Regulation Natural Turf Pitch</h2>
-        <p style="color: var(--gray-400); font-size: 14px; line-height: 1.7;">
+        <p class="section-label" style="color: var(--gold);" data-i18n="pitch_label">Training Facilities</p>
+        <h2 class="section-title" style="color: var(--white); font-size: 32px;" data-i18n="pitch_title">FIFA-Regulation Natural Turf Pitch</h2>
+        <p style="color: var(--gray-400); font-size: 14px; line-height: 1.7;" data-i18n="pitch_text">
           Full-size natural grass pitch maintained to professional standards. Located just a 3-minute jog from the resort, providing a focused training environment away from accommodation distractions.
         </p>
       </div>
       <div class="pitch-info-right">
         <div class="pitch-feature">
           <div class="pitch-feature-icon">⚽</div>
-          <h4>2 × 90 min Sessions</h4>
-          <p>Two daily training sessions on the pitch</p>
+          <h4 data-i18n="pf_sessions_title">2 × 90 min Sessions</h4>
+          <p data-i18n="pf_sessions_desc">Two daily training sessions on the pitch</p>
         </div>
         <div class="pitch-feature">
           <div class="pitch-feature-icon">🎥</div>
-          <h4>Video Analysis</h4>
-          <p>Tower position for tactical recording</p>
+          <h4 data-i18n="pf_video_title">Video Analysis</h4>
+          <p data-i18n="pf_video_desc">Tower position for tactical recording</p>
         </div>
         <div class="pitch-feature">
           <div class="pitch-feature-icon">🏋️</div>
-          <h4>Full Equipment</h4>
-          <p>Mannequins, bags, ladders, goals & more</p>
+          <h4 data-i18n="pf_equip_title">Full Equipment</h4>
+          <p data-i18n="pf_equip_desc">Mannequins, bags, ladders, goals & more</p>
         </div>
         <div class="pitch-feature">
           <div class="pitch-feature-icon">❄️</div>
-          <h4>Ice Baths</h4>
-          <p>200kg ice daily, post-session recovery</p>
+          <h4 data-i18n="pf_ice_title">Ice Baths</h4>
+          <p data-i18n="pf_ice_desc">200kg ice daily, post-session recovery</p>
         </div>
       </div>
     </div>
@@ -1122,8 +1189,8 @@
   <!-- ==================== SLIDE 4: FACILITIES ==================== -->
   <section class="slide slide-facilities" id="slide-facilities">
     <div class="facilities-header">
-      <p class="section-label">Resort Facilities</p>
-      <h2 class="section-title">Everything Your Squad Needs</h2>
+      <p class="section-label" data-i18n="fac_label">Resort Facilities</p>
+      <h2 class="section-title" data-i18n="fac_title">Everything Your Squad Needs</h2>
     </div>
     <div class="facilities-grid">
       <div class="facility-card">
@@ -1131,8 +1198,8 @@
           <img src="https://www.colinaverderesort.pt/wp-content/uploads/2022/11/Gymn-2-min.jpg" alt="Gym">
         </div>
         <div class="facility-card-body">
-          <h3>TechnoGym Fitness Centre</h3>
-          <p>Fully equipped professional gymnasium with state-of-the-art Technogym cardio and strength equipment for supplementary training.</p>
+          <h3 data-i18n="fac_gym_title">TechnoGym Fitness Centre</h3>
+          <p data-i18n="fac_gym_desc">Fully equipped professional gymnasium with state-of-the-art Technogym cardio and strength equipment for supplementary training.</p>
         </div>
       </div>
       <div class="facility-card">
@@ -1140,8 +1207,8 @@
           <img src="https://www.colinaverderesort.pt/wp-content/uploads/2022/11/eventosCorp-min.jpg" alt="Private Tent">
         </div>
         <div class="facility-card-body">
-          <h3>Private Tent & Meeting Space</h3>
-          <p>Dedicated private tent and conference facilities for team meetings, tactical briefings, video analysis sessions and private meals for the squad.</p>
+          <h3 data-i18n="fac_tent_title">Private Tent & Meeting Space</h3>
+          <p data-i18n="fac_tent_desc">Dedicated private tent and conference facilities for team meetings, tactical briefings, video analysis sessions and private meals for the squad.</p>
         </div>
       </div>
       <div class="facility-card">
@@ -1149,8 +1216,8 @@
           <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/spa2-min.jpg" alt="Medical Room">
         </div>
         <div class="facility-card-body">
-          <h3>Medical & Recovery</h3>
-          <p>2 dedicated massage/medical rooms, plus a fully equipped kit room. Daily ice baths prepared after each training session for optimal recovery.</p>
+          <h3 data-i18n="fac_med_title">Medical & Recovery</h3>
+          <p data-i18n="fac_med_desc">2 dedicated massage/medical rooms, plus a fully equipped kit room. Daily ice baths prepared after each training session for optimal recovery.</p>
         </div>
       </div>
     </div>
@@ -1159,13 +1226,13 @@
   <!-- ==================== SLIDE 5: PACKAGE ==================== -->
   <section class="slide slide-package" id="slide-package">
     <div class="package-header">
-      <p class="section-label" style="color: var(--gold);">Camp Package</p>
-      <h2 class="section-title">All-Inclusive Training Experience</h2>
+      <p class="section-label" style="color: var(--gold);" data-i18n="pkg_label">Camp Package</p>
+      <h2 class="section-title" data-i18n="pkg_title">All-Inclusive Training Experience</h2>
     </div>
     <div class="package-columns">
       <div class="package-card">
-        <h3>🏨 Accommodation & Services</h3>
-        <ul class="package-list">
+        <h3 data-i18n="pkg_accom_title">🏨 Accommodation & Services</h3>
+        <ul class="package-list" data-i18n-list="pkg_accom_items">
           <li><span class="check-icon">✓</span> 17× Single apartments</li>
           <li><span class="check-icon">✓</span> 54× pax in 2-bedroom apartments</li>
           <li><span class="check-icon">✓</span> 1 Private kit room</li>
@@ -1179,8 +1246,8 @@
         </ul>
       </div>
       <div class="package-card">
-        <h3>⚽ Training & Performance</h3>
-        <ul class="package-list">
+        <h3 data-i18n="pkg_training_title">⚽ Training & Performance</h3>
+        <ul class="package-list" data-i18n-list="pkg_training_items">
           <li><span class="check-icon">✓</span> Full natural turf grass pitch (3 min from resort)</li>
           <li><span class="check-icon">✓</span> 2 × 90-minute training sessions daily</li>
           <li><span class="check-icon">✓</span> 200kg of ice daily for recovery baths</li>
@@ -1205,20 +1272,20 @@
         <img src="https://www.colinaverderesort.pt/wp-content/uploads/2023/03/t1pool1-min.jpg" alt="Apartment pool view">
       </div>
       <div class="accommodation-details">
-        <p class="section-label">Accommodation</p>
-        <h2 class="section-title">4-Star Comfort for the Entire Squad</h2>
-        <p class="section-text">
+        <p class="section-label" data-i18n="acc_label">Accommodation</p>
+        <h2 class="section-title" data-i18n="acc_title">4-Star Comfort for the Entire Squad</h2>
+        <p class="section-text" data-i18n="acc_text">
           All apartments feature balconies with views over gardens, pools, or the Atlantic Ocean. Equipped kitchenettes, living areas, and modern bathrooms ensure comfort throughout the camp.
         </p>
         <div class="room-type">
-          <h4>Single Apartments (1 Bedroom)</h4>
-          <p class="room-count">17 apartments</p>
-          <p>Private, elegant apartments ideal for coaching staff and key personnel. Each with bedroom, bathroom, kitchenette and sitting area.</p>
+          <h4 data-i18n="acc_single_title">Single Apartments (1 Bedroom)</h4>
+          <p class="room-count" data-i18n="acc_single_count">17 apartments</p>
+          <p data-i18n="acc_single_desc">Private, elegant apartments ideal for coaching staff and key personnel. Each with bedroom, bathroom, kitchenette and sitting area.</p>
         </div>
         <div class="room-type">
-          <h4>2-Bedroom Apartments</h4>
-          <p class="room-count">Accommodating 54 pax</p>
-          <p>Spacious apartments with two bedrooms, perfect for player accommodation. Pool or garden views with generous living spaces.</p>
+          <h4 data-i18n="acc_double_title">2-Bedroom Apartments</h4>
+          <p class="room-count" data-i18n="acc_double_count">Accommodating 54 pax</p>
+          <p data-i18n="acc_double_desc">Spacious apartments with two bedrooms, perfect for player accommodation. Pool or garden views with generous living spaces.</p>
         </div>
       </div>
     </div>
@@ -1227,24 +1294,24 @@
   <!-- ==================== SLIDE 7: EXTRAS ==================== -->
   <section class="slide slide-extras" id="slide-extras">
     <div class="extras-header">
-      <p class="section-label">Included Extras</p>
-      <h2 class="section-title">Going the Extra Mile</h2>
+      <p class="section-label" data-i18n="ext_label">Included Extras</p>
+      <h2 class="section-title" data-i18n="ext_title">Going the Extra Mile</h2>
     </div>
     <div class="extras-grid">
       <div class="extra-item">
         <div class="extra-icon">✈️</div>
-        <h3>Airport Transfers</h3>
-        <p>Full squad airport transfers arranged for arrival and departure — seamless logistics from landing to training.</p>
+        <h3 data-i18n="ext_airport_title">Airport Transfers</h3>
+        <p data-i18n="ext_airport_desc">Full squad airport transfers arranged for arrival and departure — seamless logistics from landing to training.</p>
       </div>
       <div class="extra-item">
         <div class="extra-icon">⚽</div>
-        <h3>3 Friendly Matches</h3>
-        <p>Organisation of 3 friendly matches against local or touring teams, including transport to and from match venues.</p>
+        <h3 data-i18n="ext_matches_title">3 Friendly Matches</h3>
+        <p data-i18n="ext_matches_desc">Organisation of 3 friendly matches against local or touring teams, including transport to and from match venues.</p>
       </div>
       <div class="extra-item">
         <div class="extra-icon">🤝</div>
-        <h3>Local Assistance</h3>
-        <p>Dedicated on-ground support throughout the camp duration — local coordination, logistics and 24/7 assistance.</p>
+        <h3 data-i18n="ext_assist_title">Local Assistance</h3>
+        <p data-i18n="ext_assist_desc">Dedicated on-ground support throughout the camp duration — local coordination, logistics and 24/7 assistance.</p>
       </div>
     </div>
   </section>
@@ -1252,19 +1319,19 @@
   <!-- ==================== SLIDE 8: PRICING ==================== -->
   <section class="slide slide-pricing" id="slide-pricing">
     <div class="pricing-card">
-      <p class="pricing-label">Investment</p>
+      <p class="pricing-label" data-i18n="price_label">Investment</p>
       <div class="pricing-amount">
         <span class="currency">€</span>250
       </div>
-      <p class="pricing-per">per person, per night</p>
+      <p class="pricing-per" data-i18n="price_per">per person, per night</p>
       <div class="pricing-breakdown">
         <div class="pricing-breakdown-item">
           <div class="value">71</div>
-          <div class="label">Total Pax</div>
+          <div class="label" data-i18n="price_total_pax">Total Pax</div>
         </div>
         <div class="pricing-breakdown-item">
           <div class="value">14</div>
-          <div class="label">Nights</div>
+          <div class="label" data-i18n="price_nights">Nights</div>
         </div>
         <div class="pricing-breakdown-item">
           <div class="value">Jul 15–29</div>
@@ -1273,30 +1340,30 @@
       </div>
     </div>
     <div class="pricing-total">
-      <p class="total-label">Total Camp Investment</p>
+      <p class="total-label" data-i18n="price_total_label">Total Camp Investment</p>
       <p class="total-amount">€248,500</p>
-      <p class="total-note">71 pax × 14 nights × €250/night — All-inclusive package</p>
+      <p class="total-note" data-i18n="price_total_note">71 pax × 14 nights × €250/night — All-inclusive package</p>
     </div>
   </section>
 
   <!-- ==================== SLIDE 9: PAYMENT & CANCELLATION ==================== -->
   <section class="slide slide-terms" id="slide-terms">
     <div class="terms-container">
-      <p class="section-label">Important Information</p>
-      <h2 class="section-title">Payment & Cancellation Terms</h2>
+      <p class="section-label" data-i18n="terms_label">Important Information</p>
+      <h2 class="section-title" data-i18n="terms_title">Payment & Cancellation Terms</h2>
 
       <!-- Payment Conditions -->
       <div class="payment-row">
         <div class="payment-step-card">
           <div class="payment-step-number" style="background: linear-gradient(135deg, var(--gold), #c9a227); color: var(--dark);">1</div>
-          <h3>Deposit — 50%</h3>
-          <p>Due within <strong>5 days</strong> after confirmation of the booking</p>
+          <h3 data-i18n="pay_deposit_title">Deposit — 50%</h3>
+          <p data-i18n="pay_deposit_desc">Due within <strong>5 days</strong> after confirmation of the booking</p>
         </div>
         <div class="payment-connector-line"></div>
         <div class="payment-step-card">
           <div class="payment-step-number" style="background: linear-gradient(135deg, #1e3a5f, #2a5080); color: var(--white);">2</div>
-          <h3>Balance — 50%</h3>
-          <p>Due <strong>45 days</strong> before arrival date</p>
+          <h3 data-i18n="pay_balance_title">Balance — 50%</h3>
+          <p data-i18n="pay_balance_desc">Due <strong>45 days</strong> before arrival date</p>
         </div>
       </div>
 
@@ -1305,25 +1372,25 @@
         <div class="terms-card terms-card-green">
           <div class="terms-card-header">
             <span class="terms-icon">✓</span>
-            <h3>Free Reduction</h3>
+            <h3 data-i18n="cancel_free_title">Free Reduction</h3>
           </div>
-          <p>Groups may reduce participants by up to <strong>20%</strong> without penalty, provided the reduction is made <strong>90+ days</strong> before departure.</p>
+          <p data-i18n="cancel_free_desc">Groups may reduce participants by up to <strong>20%</strong> without penalty, provided the reduction is made <strong>90+ days</strong> before departure.</p>
         </div>
 
         <div class="terms-card terms-card-amber">
           <div class="terms-card-header">
             <span class="terms-icon">⚠</span>
-            <h3>Reductions Over 20%</h3>
+            <h3 data-i18n="cancel_over_title">Reductions Over 20%</h3>
           </div>
-          <p>Cancellation fee of <strong>50% of the deposit</strong> for additional participants removed. Non-refundable subcontractor costs will not be refunded.</p>
+          <p data-i18n="cancel_over_desc">Cancellation fee of <strong>50% of the deposit</strong> for additional participants removed. Non-refundable subcontractor costs will not be refunded.</p>
         </div>
 
         <div class="terms-card terms-card-red">
           <div class="terms-card-header">
             <span class="terms-icon">✕</span>
-            <h3>Cancellation Charges</h3>
+            <h3 data-i18n="cancel_charges_title">Cancellation Charges</h3>
           </div>
-          <ul class="terms-list">
+          <ul class="terms-list" data-i18n-list="cancel_charges_items">
             <li><strong>89–35 days</strong> before departure: 100% of the deposit</li>
             <li><strong>35 days or less</strong>: 100% of the total trip cost</li>
           </ul>
@@ -1340,10 +1407,10 @@
       <img src="https://upload.wikimedia.org/wikipedia/pt/e/ee/Pyramids_FC.png" alt="Pyramids FC" style="height: 80px;">
     </div>
     <img src="assets/nextplay_logo.avif" alt="NextPlay" style="height: 35px; opacity: 0.85;">
-    <h2 class="closing-title">Ready to Elevate Your Pre-Season</h2>
-    <p class="closing-tagline">Algarve, Portugal · July 15–29, 2026</p>
+    <h2 class="closing-title" data-i18n="closing_title">Ready to Elevate Your Pre-Season</h2>
+    <p class="closing-tagline" data-i18n="closing_tagline">Algarve, Portugal · July 15–29, 2026</p>
     <div class="closing-contact">
-      <p style="color: var(--white); font-weight: 600; margin-bottom: 10px;">Get in Touch</p>
+      <p style="color: var(--white); font-weight: 600; margin-bottom: 10px;" data-i18n="closing_contact">Get in Touch</p>
       <p>NextPlay Sports · <a href="mailto:moura@nextplay.travel">moura@nextplay.travel</a></p>
     </div>
   </section>
@@ -1352,17 +1419,12 @@
     // Navigation dots
     const slides = document.querySelectorAll('.slide');
     const navDots = document.getElementById('navDots');
-
     slides.forEach((slide, i) => {
       const dot = document.createElement('div');
       dot.className = 'nav-dot';
-      dot.addEventListener('click', () => {
-        slide.scrollIntoView({ behavior: 'smooth' });
-      });
+      dot.addEventListener('click', () => slide.scrollIntoView({ behavior: 'smooth' }));
       navDots.appendChild(dot);
     });
-
-    // Highlight active dot on scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1373,9 +1435,248 @@
         }
       });
     }, { threshold: 0.5 });
-
     slides.forEach(slide => observer.observe(slide));
+
+    // ========== TRANSLATIONS ==========
+    const translations = {
+      en: {
+        cover_subtitle: "Pre-Season Training Camp 2026",
+        cover_location: "Algarve, Portugal",
+        cover_dates: "15 JULY — 29 JULY 2026",
+        cover_resort_location: "Moncarapacho, Algarve",
+        dest_label: "The Destination",
+        dest_title: "World-Class Training in the Heart of the Algarve",
+        dest_text: "Nestled on 30 hectares of pristine countryside between the beautiful cities of Tavira and Olhão, Colina Verde Resort offers the perfect environment for elite football preparation. A 4-star resort combining comfort with exceptional conditions for professional sports practice, trusted by teams including the Spanish National Football Team, Aberdeen FC, and FC Girondins de Bordeaux.",
+        stat_nights: "Nights",
+        stat_guests: "Guests",
+        stat_resort: "Resort",
+        stat_hectares: "Hectares",
+        pitch_label: "Training Facilities",
+        pitch_title: "FIFA-Regulation Natural Turf Pitch",
+        pitch_text: "Full-size natural grass pitch maintained to professional standards. Located just a 3-minute jog from the resort, providing a focused training environment away from accommodation distractions.",
+        pf_sessions_title: "2 × 90 min Sessions",
+        pf_sessions_desc: "Two daily training sessions on the pitch",
+        pf_video_title: "Video Analysis",
+        pf_video_desc: "Tower position for tactical recording",
+        pf_equip_title: "Full Equipment",
+        pf_equip_desc: "Mannequins, bags, ladders, goals & more",
+        pf_ice_title: "Ice Baths",
+        pf_ice_desc: "200kg ice daily, post-session recovery",
+        fac_label: "Resort Facilities",
+        fac_title: "Everything Your Squad Needs",
+        fac_gym_title: "TechnoGym Fitness Centre",
+        fac_gym_desc: "Fully equipped professional gymnasium with state-of-the-art Technogym cardio and strength equipment for supplementary training.",
+        fac_tent_title: "Private Tent & Meeting Space",
+        fac_tent_desc: "Dedicated private tent and conference facilities for team meetings, tactical briefings, video analysis sessions and private meals for the squad.",
+        fac_med_title: "Medical & Recovery",
+        fac_med_desc: "2 dedicated massage/medical rooms, plus a fully equipped kit room. Daily ice baths prepared after each training session for optimal recovery.",
+        pkg_label: "Camp Package",
+        pkg_title: "All-Inclusive Training Experience",
+        pkg_accom_title: "🏨 Accommodation & Services",
+        pkg_accom_items: [
+          "17× Single apartments",
+          "54× pax in 2-bedroom apartments",
+          "1 Private kit room",
+          "2 Massage / Medical rooms",
+          "Private meal room for the squad",
+          "Conference room (40 guests, projector & screen)",
+          "2 litres of bottled water per person per day",
+          "Daily kit laundry service",
+          "WiFi throughout the resort",
+          "Sport TV in reception area"
+        ],
+        pkg_training_title: "⚽ Training & Performance",
+        pkg_training_items: [
+          "Full natural turf grass pitch (3 min from resort)",
+          "2 × 90-minute training sessions daily",
+          "200kg of ice daily for recovery baths",
+          "Video analysis tower position",
+          "Complete training equipment set",
+          "Mannequins, tackle bags, ladders, flat tops",
+          "Slalom poles, bazooka goals, bosu balls",
+          "Yoga mats for stretching sessions",
+          "Fully equipped TechnoGym centre"
+        ],
+        acc_label: "Accommodation",
+        acc_title: "4-Star Comfort for the Entire Squad",
+        acc_text: "All apartments feature balconies with views over gardens, pools, or the Atlantic Ocean. Equipped kitchenettes, living areas, and modern bathrooms ensure comfort throughout the camp.",
+        acc_single_title: "Single Apartments (1 Bedroom)",
+        acc_single_count: "17 apartments",
+        acc_single_desc: "Private, elegant apartments ideal for coaching staff and key personnel. Each with bedroom, bathroom, kitchenette and sitting area.",
+        acc_double_title: "2-Bedroom Apartments",
+        acc_double_count: "Accommodating 54 pax",
+        acc_double_desc: "Spacious apartments with two bedrooms, perfect for player accommodation. Pool or garden views with generous living spaces.",
+        ext_label: "Included Extras",
+        ext_title: "Going the Extra Mile",
+        ext_airport_title: "Airport Transfers",
+        ext_airport_desc: "Full squad airport transfers arranged for arrival and departure — seamless logistics from landing to training.",
+        ext_matches_title: "3 Friendly Matches",
+        ext_matches_desc: "Organisation of 3 friendly matches against local or touring teams, including transport to and from match venues.",
+        ext_assist_title: "Local Assistance",
+        ext_assist_desc: "Dedicated on-ground support throughout the camp duration — local coordination, logistics and 24/7 assistance.",
+        price_label: "Investment",
+        price_per: "per person, per night",
+        price_total_pax: "Total Pax",
+        price_nights: "Nights",
+        price_total_label: "Total Camp Investment",
+        price_total_note: "71 pax × 14 nights × €250/night — All-inclusive package",
+        terms_label: "Important Information",
+        terms_title: "Payment & Cancellation Terms",
+        pay_deposit_title: "Deposit — 50%",
+        pay_deposit_desc: "Due within <strong>5 days</strong> after confirmation of the booking",
+        pay_balance_title: "Balance — 50%",
+        pay_balance_desc: "Due <strong>45 days</strong> before arrival date",
+        cancel_free_title: "Free Reduction",
+        cancel_free_desc: "Groups may reduce participants by up to <strong>20%</strong> without penalty, provided the reduction is made <strong>90+ days</strong> before departure.",
+        cancel_over_title: "Reductions Over 20%",
+        cancel_over_desc: "Cancellation fee of <strong>50% of the deposit</strong> for additional participants removed. Non-refundable subcontractor costs will not be refunded.",
+        cancel_charges_title: "Cancellation Charges",
+        cancel_charges_items: [
+          "<strong>89–35 days</strong> before departure: 100% of the deposit",
+          "<strong>35 days or less</strong>: 100% of the total trip cost"
+        ],
+        closing_title: "Ready to Elevate Your Pre-Season",
+        closing_tagline: "Algarve, Portugal · July 15–29, 2026",
+        closing_contact: "Get in Touch"
+      },
+      ar: {
+        cover_subtitle: "معسكر الإعداد للموسم ٢٠٢٦",
+        cover_location: "الغارف، البرتغال",
+        cover_dates: "١٥ يوليو — ٢٩ يوليو ٢٠٢٦",
+        cover_resort_location: "مونكاراباشو، الغارف",
+        dest_label: "الوجهة",
+        dest_title: "تدريب عالمي المستوى في قلب الغارف",
+        dest_text: "يقع منتجع كولينا فيردي على مساحة ٣٠ هكتاراً من الريف الخلاب بين مدينتي تافيرا وأولهاو الجميلتين، ويوفر البيئة المثالية لإعداد فرق كرة القدم النخبوية. منتجع أربع نجوم يجمع بين الراحة والظروف الاستثنائية للممارسة الرياضية الاحترافية، وقد استضاف فرقاً عريقة منها المنتخب الإسباني ونادي أبردين ونادي جيروندان دو بوردو.",
+        stat_nights: "ليالٍ",
+        stat_guests: "ضيوف",
+        stat_resort: "منتجع",
+        stat_hectares: "هكتار",
+        pitch_label: "مرافق التدريب",
+        pitch_title: "ملعب عشب طبيعي بمواصفات الفيفا",
+        pitch_text: "ملعب عشب طبيعي بالحجم الكامل يُصان وفق أعلى المعايير الاحترافية. يبعد ثلاث دقائق جرياً فقط عن المنتجع، مما يوفر بيئة تدريبية مركّزة بعيداً عن مكان الإقامة.",
+        pf_sessions_title: "حصتان × ٩٠ دقيقة",
+        pf_sessions_desc: "حصتان تدريبيتان يومياً على الملعب",
+        pf_video_title: "التحليل المرئي",
+        pf_video_desc: "برج مخصص للتصوير التكتيكي",
+        pf_equip_title: "معدات كاملة",
+        pf_equip_desc: "دمى، أكياس، سلالم، مرامي والمزيد",
+        pf_ice_title: "حمامات الثلج",
+        pf_ice_desc: "٢٠٠ كغ من الثلج يومياً للاستشفاء",
+        fac_label: "مرافق المنتجع",
+        fac_title: "كل ما يحتاجه فريقكم",
+        fac_gym_title: "مركز تكنو جيم للياقة",
+        fac_gym_desc: "صالة رياضية مجهزة بالكامل بأحدث أجهزة تكنو جيم للتمارين القلبية وتمارين القوة كتدريب تكميلي.",
+        fac_tent_title: "خيمة خاصة وقاعة اجتماعات",
+        fac_tent_desc: "خيمة خاصة ومرافق مؤتمرات مخصصة لاجتماعات الفريق والإحاطات التكتيكية وجلسات التحليل المرئي والوجبات الخاصة بالفريق.",
+        fac_med_title: "الطب والاستشفاء",
+        fac_med_desc: "غرفتا تدليك/علاج طبي مخصصتان، بالإضافة إلى غرفة معدات مجهزة بالكامل. حمامات ثلج يومية بعد كل حصة تدريبية لتعافٍ مثالي.",
+        pkg_label: "باقة المعسكر",
+        pkg_title: "تجربة تدريبية شاملة",
+        pkg_accom_title: "🏨 الإقامة والخدمات",
+        pkg_accom_items: [
+          "١٧ شقة فردية",
+          "٥٤ فرداً في شقق بغرفتي نوم",
+          "غرفة معدات خاصة واحدة",
+          "غرفتا تدليك / علاج طبي",
+          "قاعة طعام خاصة بالفريق",
+          "قاعة مؤتمرات (٤٠ ضيفاً، بروجكتور وشاشة)",
+          "٢ لتر مياه معبأة لكل فرد يومياً",
+          "خدمة غسيل الملابس الرياضية يومياً",
+          "واي فاي في جميع أنحاء المنتجع",
+          "Sport TV متاح في منطقة الاستقبال"
+        ],
+        pkg_training_title: "⚽ التدريب والأداء",
+        pkg_training_items: [
+          "ملعب عشب طبيعي كامل (٣ دقائق من المنتجع)",
+          "حصتان تدريبيتان × ٩٠ دقيقة يومياً",
+          "٢٠٠ كغ من الثلج يومياً لحمامات الاستشفاء",
+          "برج التحليل المرئي",
+          "طقم معدات تدريب كامل",
+          "دمى، أكياس تدريب، سلالم، أقماع",
+          "أعمدة تمرير، مرامي صغيرة، كرات بوسو",
+          "حصائر يوغا لتمارين الإطالة",
+          "مركز تكنو جيم مجهز بالكامل"
+        ],
+        acc_label: "الإقامة",
+        acc_title: "راحة أربع نجوم لكامل الفريق",
+        acc_text: "تتميز جميع الشقق بشرفات تطل على الحدائق أو المسابح أو المحيط الأطلسي. مطابخ صغيرة مجهزة ومناطق معيشة وحمامات حديثة تضمن الراحة طوال فترة المعسكر.",
+        acc_single_title: "شقق فردية (غرفة نوم واحدة)",
+        acc_single_count: "١٧ شقة",
+        acc_single_desc: "شقق أنيقة وخاصة مثالية للجهاز الفني والموظفين الرئيسيين. تحتوي على غرفة نوم وحمام ومطبخ صغير ومنطقة جلوس.",
+        acc_double_title: "شقق بغرفتي نوم",
+        acc_double_count: "تستوعب ٥٤ فرداً",
+        acc_double_desc: "شقق واسعة بغرفتي نوم، مثالية لإقامة اللاعبين. إطلالات على المسبح أو الحديقة مع مساحات معيشة واسعة.",
+        ext_label: "خدمات إضافية مشمولة",
+        ext_title: "نذهب إلى أبعد من ذلك",
+        ext_airport_title: "التوصيل من وإلى المطار",
+        ext_airport_desc: "توصيل كامل الفريق من وإلى المطار عند الوصول والمغادرة — لوجستيات سلسة من الهبوط حتى التدريب.",
+        ext_matches_title: "٣ مباريات ودية",
+        ext_matches_desc: "تنظيم ٣ مباريات ودية ضد فرق محلية أو زائرة، شاملة النقل من وإلى ملاعب المباريات.",
+        ext_assist_title: "مساعدة محلية",
+        ext_assist_desc: "دعم ميداني مخصص طوال فترة المعسكر — تنسيق محلي ولوجستيات ومساعدة على مدار الساعة.",
+        price_label: "الاستثمار",
+        price_per: "لكل فرد، لكل ليلة",
+        price_total_pax: "إجمالي الأفراد",
+        price_nights: "ليالٍ",
+        price_total_label: "إجمالي استثمار المعسكر",
+        price_total_note: "٧١ فرد × ١٤ ليلة × ٢٥٠ يورو/ليلة — باقة شاملة",
+        terms_label: "معلومات مهمة",
+        terms_title: "شروط الدفع والإلغاء",
+        pay_deposit_title: "الدفعة المقدمة — ٥٠٪",
+        pay_deposit_desc: "تُستحق خلال <strong>٥ أيام</strong> من تأكيد الحجز",
+        pay_balance_title: "الرصيد المتبقي — ٥٠٪",
+        pay_balance_desc: "يُستحق قبل <strong>٤٥ يوماً</strong> من تاريخ الوصول",
+        cancel_free_title: "تخفيض مجاني",
+        cancel_free_desc: "يمكن للمجموعات تخفيض عدد المشاركين بنسبة تصل إلى <strong>٢٠٪</strong> دون غرامة، شريطة أن يتم التخفيض قبل <strong>٩٠ يوماً أو أكثر</strong> من موعد المغادرة.",
+        cancel_over_title: "تخفيض يتجاوز ٢٠٪",
+        cancel_over_desc: "رسوم إلغاء بنسبة <strong>٥٠٪ من مبلغ الإيداع</strong> عن كل مشارك إضافي يتم إزالته. لن تُسترد المبالغ المتعلقة بتكاليف المقاولين من الباطن غير القابلة للاسترداد.",
+        cancel_charges_title: "رسوم الإلغاء",
+        cancel_charges_items: [
+          "قبل <strong>٨٩–٣٥ يوماً</strong> من المغادرة: ١٠٠٪ من مبلغ الإيداع",
+          "قبل <strong>٣٥ يوماً أو أقل</strong>: ١٠٠٪ من التكلفة الإجمالية"
+        ],
+        closing_title: "مستعدون للارتقاء بإعدادكم للموسم",
+        closing_tagline: "الغارف، البرتغال · ١٥–٢٩ يوليو ٢٠٢٦",
+        closing_contact: "تواصلوا معنا"
+      }
+    };
+
+    // Language switcher
+    let currentLang = 'en';
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentLang = btn.dataset.lang;
+        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+        document.body.style.fontFamily = currentLang === 'ar'
+          ? "'Noto Sans Arabic', 'Inter', sans-serif"
+          : "'Inter', sans-serif";
+        applyTranslations();
+      });
+    });
+
+    function applyTranslations() {
+      const t = translations[currentLang];
+      // Simple text elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (t[key]) el.innerHTML = t[key];
+      });
+      // List elements
+      document.querySelectorAll('[data-i18n-list]').forEach(ul => {
+        const key = ul.dataset.i18nList;
+        if (t[key]) {
+          const items = ul.querySelectorAll('li');
+          t[key].forEach((text, i) => {
+            if (items[i]) items[i].innerHTML = '<span class="check-icon">✓</span> ' + text;
+          });
+        }
+      });
+    }
   </script>
+  <!-- Arabic font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 </body>
 </html>
